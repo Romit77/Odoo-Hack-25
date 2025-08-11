@@ -3,7 +3,6 @@ import Root from "./layouts/Root";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
-import OTPVerification from "./pages/auth/OTPVerification";
 import Turf from "./components/turf/Turf";
 import TurfDetails from "./components/turf/TurfDetails";
 import BecomeOwner from "./features/becomeOwner/BecomeOwner";
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp />,
-      },
-      {
-        path: "verify-otp",
-        element: <OTPVerification />,
       },
       {
         path: "turfs",
