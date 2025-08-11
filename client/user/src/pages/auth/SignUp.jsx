@@ -183,29 +183,6 @@ const SignUp = () => {
                   )}
                 </MotionDiv>
 
-                {/* Phone Field */}
-                <MotionDiv variants={staggerItem} className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    Phone Number
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      {...register("phone")}
-                      type="text"
-                      className={`input-modern pl-12 ${
-                        errors.phone ? "border-red-500 focus:ring-red-500" : ""
-                      }`}
-                      placeholder="Enter phone with country code"
-                    />
-                  </div>
-                  {errors.phone && (
-                    <p className="text-red-400 text-sm">
-                      {errors.phone.message}
-                    </p>
-                  )}
-                </MotionDiv>
-
                 {/* Password Field */}
                 <MotionDiv variants={staggerItem} className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">

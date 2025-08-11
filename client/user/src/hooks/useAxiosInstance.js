@@ -1,17 +1,11 @@
 import axios from "axios";
 
-const DEFAULT_REMOTE = "https://turf-spot-be.vercel.app";
-const LOCAL_BASE = import.meta?.env?.VITE_API_BASE || "http://localhost:1234";
-
 const axiosInstance = axios.create({
-  baseURL: DEFAULT_REMOTE,
+  // baseURL: "http://localhost:1234",
+  baseURL: "https://turf-spot-be.vercel.app",
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  // Force local base URL for registration and OTP verification endpoints when developing
-  if (/\/api\/user\/auth\/(register|verify-otp)/.test(config.url)) {
-    config.baseURL = LOCAL_BASE;
-  }
   let token = null;
   try {
     const persistedUser = localStorage.getItem("persist:user");
