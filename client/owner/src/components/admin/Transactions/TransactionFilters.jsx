@@ -46,3 +46,4 @@ const TransactionFilters = ({ filters, onFilterChange }) => {
 };
 
 export default TransactionFilters;
+

@@ -16,3 +16,4 @@ const FormField = ({ label, name, type = "text", register, error }) => (
 );
 
 export default FormField;
+

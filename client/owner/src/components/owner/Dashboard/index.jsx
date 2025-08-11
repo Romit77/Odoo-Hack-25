@@ -13,7 +13,7 @@ const Dashboard = () => {
           Owner Dashboard
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          {/* Example stat cards */}
+          {}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-gradient-to-r from-[#6366f1] to-[#4f46e5] rounded-xl p-6 shadow-lg"
@@ -61,3 +61,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

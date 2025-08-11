@@ -51,3 +51,4 @@ const RejectedOwnerRequests = () => {
 };
 
 export default RejectedOwnerRequests;
+

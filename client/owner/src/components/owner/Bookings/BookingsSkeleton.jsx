@@ -30,3 +30,4 @@ const BookingsSkeleton = () => {
 };
 
 export default BookingsSkeleton;
+

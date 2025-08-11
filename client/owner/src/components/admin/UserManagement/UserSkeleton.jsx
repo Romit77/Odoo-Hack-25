@@ -31,3 +31,4 @@ const UserSkeleton = () => {
 };
 
 export default UserSkeleton;
+

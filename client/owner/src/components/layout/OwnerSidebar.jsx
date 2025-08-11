@@ -46,3 +46,4 @@ const OwnerSidebar = ({ isOpen, toggleSidebar, className }) => {
 };
 
 export default OwnerSidebar;
+

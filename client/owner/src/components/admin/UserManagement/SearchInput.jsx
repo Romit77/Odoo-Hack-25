@@ -22,3 +22,4 @@ const SearchInput = ({ searchTerm, handleSearch }) => {
 };
 
 export default SearchInput;
+

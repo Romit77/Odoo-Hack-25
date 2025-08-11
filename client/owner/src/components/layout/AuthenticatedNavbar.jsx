@@ -51,3 +51,4 @@ const AuthenticatedNavbar = ({ toggleSidebar }) => {
 };
 
 export default AuthenticatedNavbar;
+
