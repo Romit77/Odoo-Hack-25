@@ -42,7 +42,6 @@ const router = createBrowserRouter([
   {
     path: "/auth",
     element: <ProtectedLayout />,
-    // errorElement: <div>Error</div>,
     children: [
       {
         path: "",

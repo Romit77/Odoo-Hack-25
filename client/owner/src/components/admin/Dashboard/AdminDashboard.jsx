@@ -27,7 +27,6 @@ const AdminDashboard = () => {
   const { data, loading, error } = useDashboardData();
   const [selectedTimeRange, setSelectedTimeRange] = useState("30");
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,7 +105,6 @@ const AdminDashboard = () => {
     return sum + day.amount;
   }, 0);
 
-  // Mock data for additional charts
   const revenueByMonth = [
     { month: "Jan", revenue: 45000 },
     { month: "Feb", revenue: 52000 },
@@ -249,7 +247,7 @@ const AdminDashboard = () => {
           ></motion.div>
         </motion.div>
 
-        {/* Primary Stats Grid */}
+        {}
         <motion.div
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-10"
           variants={containerVariants}
@@ -308,7 +306,7 @@ const AdminDashboard = () => {
           ))}
         </motion.div>
 
-        {/* Secondary Stats Grid */}
+        {}
         <motion.div
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-10"
           variants={containerVariants}
@@ -383,14 +381,14 @@ const AdminDashboard = () => {
           ))}
         </motion.div>
 
-        {/* Charts Grid */}
+        {}
         <motion.div
           className="grid gap-6 lg:grid-cols-2 mb-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Main Booking Chart */}
+          {}
           <motion.div
             className="lg:col-span-2 bg-gradient-to-br from-dark-900/90 to-dark-800/90 rounded-2xl shadow-2xl border border-dark-600/50 backdrop-blur-sm overflow-hidden"
             style={{
@@ -458,7 +456,7 @@ const AdminDashboard = () => {
             </div>
           </motion.div>
 
-          {/* Revenue Chart */}
+          {}
           <motion.div
             className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 rounded-2xl shadow-2xl border border-dark-600/50 backdrop-blur-sm overflow-hidden"
             variants={cardVariants}
@@ -513,7 +511,7 @@ const AdminDashboard = () => {
             </div>
           </motion.div>
 
-          {/* Court Utilization */}
+          {}
           <motion.div
             className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 rounded-2xl shadow-2xl border border-dark-600/50 backdrop-blur-sm overflow-hidden"
             variants={cardVariants}
@@ -540,7 +538,7 @@ const AdminDashboard = () => {
           </motion.div>
         </motion.div>
 
-        {/* Peak Hours Chart */}
+        {}
         <motion.div
           className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 rounded-2xl shadow-2xl border border-dark-600/50 backdrop-blur-sm overflow-hidden"
           variants={cardVariants}

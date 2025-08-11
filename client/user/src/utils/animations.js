@@ -1,4 +1,3 @@
-// Animation variants
 export const fadeInUp = {
   initial: {
     y: 60,
@@ -99,7 +98,6 @@ export const staggerItem = {
   },
 };
 
-// Hover effects
 export const hoverScale = {
   whileHover: {
     scale: 1.05,
@@ -123,8 +121,6 @@ export const hoverGlow = {
     transition: { duration: 0.2 },
   },
 };
-
-// Page transition
 export const pageTransition = {
   initial: {
     opacity: 0,
@@ -147,7 +143,6 @@ export const pageTransition = {
   },
 };
 
-// Loading spinner animation
 export const spinnerVariants = {
   animate: {
     rotate: 360,

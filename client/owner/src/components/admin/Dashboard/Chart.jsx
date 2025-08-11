@@ -35,3 +35,4 @@ const Chart = ({ data = [] }) => (
 );
 
 export default Chart;
+

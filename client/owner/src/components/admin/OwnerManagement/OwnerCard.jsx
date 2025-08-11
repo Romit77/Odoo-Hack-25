@@ -36,3 +36,4 @@ const OwnerCard = ({ owner }) => {
 };
 
 export default OwnerCard;
+

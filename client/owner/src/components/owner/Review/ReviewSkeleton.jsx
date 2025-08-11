@@ -28,3 +28,4 @@ const ReviewsSkeleton = () => {
 };
 
 export default ReviewsSkeleton;
+

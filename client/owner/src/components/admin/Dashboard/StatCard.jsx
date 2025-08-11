@@ -18,3 +18,4 @@ const StatCard = ({ title, value, icon: Icon,className  }) => (
 );
 
 export default StatCard;
+

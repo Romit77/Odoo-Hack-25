@@ -123,3 +123,4 @@ const BookingHistoryChart = ({ data }) => {
 };
 
 export default BookingHistoryChart;
+

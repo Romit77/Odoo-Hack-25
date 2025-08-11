@@ -20,3 +20,4 @@ const OwnersSkeleton = () => {
 };
 
 export default OwnersSkeleton;
+

@@ -49,13 +49,7 @@ const CourtUtilizationChart = ({ data }) => {
     },
   };
 
-  const colors = [
-    "#3B82F6", // Blue
-    "#10B981", // Green
-    "#F59E0B", // Yellow
-    "#EF4444", // Red
-    "#8B5CF6", // Purple
-  ];
+  const colors = ["#3B82F6", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6"];
 
   const chartData = {
     labels: data.map((item) => item.court),

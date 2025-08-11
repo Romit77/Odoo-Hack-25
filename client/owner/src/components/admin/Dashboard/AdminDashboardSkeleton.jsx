@@ -56,3 +56,4 @@ const SkeletonCard = ({ Icon }) => (
 );
 
 export default AdminDashboardSkeleton;
+

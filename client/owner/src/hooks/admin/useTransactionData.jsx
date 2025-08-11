@@ -27,3 +27,4 @@ const useTransactionData = () => {
 };
 
 export default useTransactionData;
+
