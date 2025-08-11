@@ -25,7 +25,7 @@ const TurfBookingHistory = () => {
   return (
     <div className="container mx-auto p-4 bg-base-200 min-h-screen">
       <h1 className="text-3xl font-bold text-center mb-8">
-        Your Turf Booking History
+        Your Court Booking History
       </h1>
       <div className="space-y-6 mx-auto lg:w-1/2">
         {bookings.map((booking) => (

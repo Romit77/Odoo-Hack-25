@@ -61,9 +61,7 @@ const WriteReview = ({
               onChange={onReviewChange}
               placeholder="Write your review here..."
               title="Please enter your review"
-              
             ></textarea>
-          
           </div>
           <div className="flex justify-end space-x-2">
             <button

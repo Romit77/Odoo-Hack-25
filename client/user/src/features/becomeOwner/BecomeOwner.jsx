@@ -8,7 +8,7 @@ const BecomeOwner = () => {
   return (
     <div className="container mx-auto mt-20  p-2">
       <h1 className="text-3xl font-bold mb-8 text-center">
-        Become a Turf Owner
+        Become a Court Owner
       </h1>
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
@@ -40,14 +40,13 @@ const BecomeOwner = () => {
           </form>
         </div>
 
-        {/* content section */}
         <div className=" ">
           <div className=" shadow-md border p-6 rounded-lg h-full">
             <h2 className="text-2xl font-semibold mb-4">
-              Becoming a Turf Owner
+              Becoming a Court Owner
             </h2>
             <p className="mb-4">
-              Join our platform as a turf owner and start managing your sports
+              Join our platform as a Court owner and start managing your sports
               facilities efficiently. Here&#39;s what you need to know:
             </p>
             <ul className="list-disc pl-5 mb-4 space-y-2">
@@ -62,12 +61,12 @@ const BecomeOwner = () => {
                 account.
               </li>
               <li>
-                Once your account is set up, you can start managing your turf
+                Once your account is set up, you can start managing your Court
                 business.
               </li>
             </ul>
             <h3 className="text-xl font-semibold mb-2">
-              As a Turf Owner, you can:
+              As a Court Owner, you can:
             </h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Add and manage multiple Courts</li>
