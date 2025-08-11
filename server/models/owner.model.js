@@ -6,6 +6,9 @@ const ownerSchema = new mongoose.Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     phone: { type: String, required: true },
+    isVerified: { type: Boolean, default: false },
+    otp: { type: String },
+    otpExpiry: { type: Date },
     role: { type: String, enum: ["admin", "owner"], default: "owner" },
   },
   { timestamps: true }

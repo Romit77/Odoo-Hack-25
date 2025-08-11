@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, MapPin, LogIn, User } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Home,
+  MapPin,
+  LogIn,
+  User,
+  LogOut,
+  UserCircle,
+} from "lucide-react";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/slices/authSlice";
 import { MotionDiv, MotionNav } from "../common/MotionWrapper";
 import {
   fadeInDown,
@@ -12,6 +23,29 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Get authentication state from Redux
+  const { isLoggedIn, token } = useSelector((state) => state.auth);
+
+  // Debug logs
+  console.log("Navbar - isLoggedIn:", isLoggedIn);
+  console.log("Navbar - token:", token);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("persist:user");
+    navigate("/", { replace: true });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,24 +122,51 @@ const Navbar = () => {
             variants={staggerContainer}
             className="hidden lg:flex items-center space-x-4"
           >
-            <MotionDiv variants={staggerItem}>
-              <Link
-                to="/login"
-                className="btn-ghost-modern flex items-center space-x-2"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Login</span>
-              </Link>
-            </MotionDiv>
-            <MotionDiv variants={staggerItem}>
-              <Link
-                to="/signup"
-                className="btn-primary-modern flex items-center space-x-2"
-              >
-                <User className="w-4 h-4" />
-                <span>Sign Up</span>
-              </Link>
-            </MotionDiv>
+            {isLoggedIn ? (
+              // Authenticated user buttons
+              <>
+                <MotionDiv variants={staggerItem}>
+                  <Link
+                    to="/auth/profile"
+                    className="btn-ghost-modern flex items-center space-x-2"
+                  >
+                    <UserCircle className="w-4 h-4" />
+                    <span>Profile</span>
+                  </Link>
+                </MotionDiv>
+                <MotionDiv variants={staggerItem}>
+                  <button
+                    onClick={handleLogout}
+                    className="btn-ghost-modern flex items-center space-x-2 text-red-400 hover:text-red-300"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </button>
+                </MotionDiv>
+              </>
+            ) : (
+              // Guest user buttons
+              <>
+                <MotionDiv variants={staggerItem}>
+                  <Link
+                    to="/login"
+                    className="btn-ghost-modern flex items-center space-x-2"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    <span>Login</span>
+                  </Link>
+                </MotionDiv>
+                <MotionDiv variants={staggerItem}>
+                  <Link
+                    to="/signup"
+                    className="btn-primary-modern flex items-center space-x-2"
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Sign Up</span>
+                  </Link>
+                </MotionDiv>
+              </>
+            )}
           </MotionDiv>
 
           {/* Mobile Menu Button */}
@@ -151,22 +212,49 @@ const Navbar = () => {
             ))}
 
             <div className="border-t border-border pt-4 space-y-3">
-              <Link
-                to="/login"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg font-medium text-gray-300 hover:text-white hover:bg-primary-500/10 transition-all duration-300"
-              >
-                <LogIn className="w-5 h-5" />
-                <span>Login</span>
-              </Link>
-              <Link
-                to="/signup"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center space-x-2 btn-primary-modern w-full"
-              >
-                <User className="w-5 h-5" />
-                <span>Sign Up</span>
-              </Link>
+              {isLoggedIn ? (
+                // Authenticated user buttons
+                <>
+                  <Link
+                    to="/auth/profile"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg font-medium text-gray-300 hover:text-white hover:bg-primary-500/10 transition-all duration-300"
+                  >
+                    <UserCircle className="w-5 h-5" />
+                    <span>Profile</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsOpen(false);
+                    }}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300 w-full text-left"
+                  >
+                    <LogOut className="w-5 h-5" />
+                    <span>Logout</span>
+                  </button>
+                </>
+              ) : (
+                // Guest user buttons
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg font-medium text-gray-300 hover:text-white hover:bg-primary-500/10 transition-all duration-300"
+                  >
+                    <LogIn className="w-5 h-5" />
+                    <span>Login</span>
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center space-x-2 btn-primary-modern w-full"
+                  >
+                    <User className="w-5 h-5" />
+                    <span>Sign Up</span>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </MotionDiv>
