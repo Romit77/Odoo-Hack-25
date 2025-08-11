@@ -22,7 +22,7 @@ const Reservation = () => {
     loading,
   } = useReservation();
 
-if( loading) return <ReservationSkeleton />;
+  if (loading) return <ReservationSkeleton />;
 
   return (
     <div className="container mx-auto px-4 py-8">

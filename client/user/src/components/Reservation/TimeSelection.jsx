@@ -8,7 +8,6 @@ const TimeSelection = ({
   timeSlots,
   duration,
 }) => {
-  // const isTimeSlotSelected = (time) => time === selectedStartTime;
   const isTimeSlotSelected = (time) => {
     if (!selectedStartTime || !duration) return false;
     const start = parse(selectedStartTime, "hh:mm a", new Date());

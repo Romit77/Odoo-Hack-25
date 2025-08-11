@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 
 const port = process.env.PORT || 1234;
 
-// Function to start the server
 const startServer = async () => {
   try {
     // First, connect to the database

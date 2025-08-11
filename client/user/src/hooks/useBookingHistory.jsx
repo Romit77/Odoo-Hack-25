@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { format, parseISO, subHours, subMinutes } from "date-fns";
 
 export default function useBookingHistory() {
-  
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
 
