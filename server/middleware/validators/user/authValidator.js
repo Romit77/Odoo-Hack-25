@@ -3,6 +3,7 @@ import { body } from "express-validator";
 export const validateRegisterInput = [
   body("name").notEmpty().withMessage("Name is required"),
   body("email").isEmail().withMessage("Email is invalid"),
+  body("phone").notEmpty().withMessage("Phone is required"),
   body("password").notEmpty().withMessage("Password is required"),
   body("confirmPassword").custom((value, { req }) => {
     if (value !== req.body.password) {
@@ -13,6 +14,6 @@ export const validateRegisterInput = [
 ];
 
 export const validateLoginInput = [
-    body("email").isEmail().withMessage("Email is invalid"),
-    body("password").notEmpty().withMessage("Password is required"),
+  body("email").isEmail().withMessage("Email is invalid"),
+  body("password").notEmpty().withMessage("Password is required"),
 ];
