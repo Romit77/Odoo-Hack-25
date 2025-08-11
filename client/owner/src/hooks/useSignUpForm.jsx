@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../redux/slices/authSlice";
- 
+
 const registerSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
@@ -39,8 +39,6 @@ const useSignUpForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-
-
   const {
     register,
     handleSubmit,
@@ -50,35 +48,28 @@ const useSignUpForm = () => {
   });
 
   const onSubmit = async (data) => {
-     setLoading(true);
+    setLoading(true);
     try {
       const response = await axiosInstance.post(
         "/api/owner/auth/register",
         data
       );
       const result = await response.data;
-        dispatch(login({ token: result.token, role: result.role }));
-        if (result.role === "owner") {
-          navigate("/owner");
-        } else if (result.role === "admin") {
-          navigate("/admin");
-        }
-        
-    } catch (error){
-       if (error.response) {
-        // Server responded with a status other than 200 range
-        toast.error(
-          `${error.response.data.message || "Registration failed"}`
-        );
+      dispatch(login({ token: result.token, role: result.role }));
+      if (result.role === "owner") {
+        navigate("/owner");
+      } else if (result.role === "admin") {
+        navigate("/admin");
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error(`${error.response.data.message || "Registration failed"}`);
       } else if (error.request) {
-        // Request was made but no response was received
         toast.error("No response from server. Please try again later.");
       } else {
-        // Something else caused the error
         toast.error(`Error: ${error.message}`);
       }
-    }
-     finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -87,4 +78,3 @@ const useSignUpForm = () => {
 };
 
 export default useSignUpForm;
-
